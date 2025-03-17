@@ -2,8 +2,7 @@
 '''
 This script contains functions for calculating per-pixel phenology metrics (phenometrics)
 on a timeseries of vegetation index values (e.g. NDVI) stored in a xarray DataArray. The
-methodology is based on the TIMESAT 3.3 software. Some elements of Phenolopy were also
-inspired by the great work of Chad Burton (chad.burton@ga.gov.au).
+methodology is based on the TIMESAT 3.3 software.
 
 The script contains the following primary functions:
         1. removal_outliers: detects and removes timeseries outliers;
@@ -65,8 +64,7 @@ def remove_outliers(ds, user_factor=2):
         The original xarray Dataset inputted into the function, with a all detected outliers in the
         veg_index variable set to nan.
     """
-    #print('\nBeginning to remove outliers.')
-    # 计算每个像素的标准差，并乘以用户因子
+    print('\nBeginning to remove outliers.')
     cutoffs = ds.std('time') * user_factor
 
     # 计算原始数据中存在的NaN值的掩模
