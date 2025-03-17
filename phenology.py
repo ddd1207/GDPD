@@ -1,6 +1,4 @@
 import os, sys
-os.environ['PROJ_LIB'] = '/home/dong/anaconda3/envs/env/lib/python3.10/site-packages/pyproj/proj_dir/share/proj'
-os.environ['GDAL_DATA'] = '/home/dong/anaconda3/envs/env/lib/python3.10/site-packages/pyproj/proj_dir/share'
 import re
 import glob
 import numpy as np
@@ -179,7 +177,7 @@ def process_years(start_year, end_year, tile, input_folder, output_folder, block
 process_years(
     start_year=2001, 
     end_year=2020, 
-    tile='h12v13', 
-    input_folder='/data/Dong/0-MODIS_EVI2', 
-    output_folder='/data/Dong/GDPD'
+    tile='{tile}', # define the MODIS tile 
+    input_folder='{input_folder}',  # define the input direction
+    output_folder='{output_folder}'  # define the output direction
 )
